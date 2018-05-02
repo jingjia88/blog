@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/article/create');
     }
 
     /**
@@ -36,7 +36,19 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|unique:articles|max:255',
+            'body' => 'required',
+        ]);
+        $article = new Article;
+        $article->title = $request->get('title');
+        $article->body = $request->get('body');
+        $article->user_id = $request->user()->id;
+        if($article->save()){
+            return redirect('admin/article');
+        }else {
+            return redirect()->back()->withInput()->withErrors('保存失敗！');
+        }
     }
 
     /**
@@ -58,7 +70,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('admin/article/edit')->with('article',$article);
     }
 
     /**
@@ -70,7 +83,19 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+        $article = Article::find($id);
+        $article->title = $request->get('title');
+        $article->body = $request->get('body');
+        $article->user_id = $request->user()->id;
+        if($article->save()){
+            return redirect('admin/article');
+        }else {
+            return redirect()->back()->withInput()->withErrors('保存失敗！');
+        }
     }
 
     /**
@@ -81,7 +106,7 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
-
+        Article::find($id)->delete();
+        return redirect()->back()->withInput()->withErrors('刪除成功!');
     }
 }
