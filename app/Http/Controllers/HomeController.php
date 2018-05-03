@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -19,5 +20,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->with('articles',\App\Article::all());
+    }
+    public function show($id)
+    {
+        $article = Article::find($id);
+        return view('content')->with('article',$article);
     }
 }

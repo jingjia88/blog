@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>NEWS</title>
+    <title>DIARY</title>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
     
 </head>
 <body>
     <div id="title" style="text-align: center;">
-        <h1>NEWS</h1>
-        <div style="padding: 5px; font-size: 18px;">Must See</div>
+        <h1>DIARY</h1>
+        <div style="padding: 5px; font-size: 18px;">Memory</div>
     </div>
     <hr>
     <div id="content">
@@ -32,5 +32,7 @@
             @endforeach
         </ul>
     </div>
+    
+
 </body>
 </html>

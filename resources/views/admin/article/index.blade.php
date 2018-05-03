@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">新聞管理</div>
+                <div class="panel-heading">日記管理</div>
 
                 <div class="panel-body">
                     @if (count($errors) > 0)

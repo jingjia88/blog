@@ -15,6 +15,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('/article/{id}','HomeController@show');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'HomeController@index');
