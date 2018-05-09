@@ -9,6 +9,8 @@
                     <form >
                         <p>{{$article->title}}</p>
                         <hr>
+                        <img src= "data:image/gif;base64,{{$article->img}}" alt="笑扁你">
+                        
                         <p>{{$article->body}}</p>                
                     </form>
 

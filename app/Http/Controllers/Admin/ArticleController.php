@@ -41,6 +41,11 @@ class ArticleController extends Controller
             'body' => 'required',
         ]);
         $article = new Article;
+        if($request->hasfile('picture')){
+            $imagedata = file_get_contents($request->file('picture'));
+            $article->img = base64_encode($imagedata);
+        }
+        
         $article->title = $request->get('title');
         $article->body = $request->get('body');
         $article->user_id = $request->user()->id;
@@ -59,7 +64,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -87,7 +92,12 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
         ]);
+
         $article = Article::find($id);
+        if($request->hasfile('picture')){
+            $imagedata = file_get_contents($request->file('picture'));
+            $article->img = base64_encode($imagedata);
+        }
         $article->title = $request->get('title');
         $article->body = $request->get('body');
         $article->user_id = $request->user()->id;

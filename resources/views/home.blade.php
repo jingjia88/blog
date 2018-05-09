@@ -12,8 +12,8 @@
 </head>
 <body>
     <div id="title" style="text-align: center;">
-        <h1>DIARY</h1>
-        <div style="padding: 5px; font-size: 18px;">Memory</div>
+        <h1 style="font-size: 36px;">DIARY</h1>
+        <div style="padding: 2px; font-size: 18px;">Memory</div>
     </div>
     <hr>
     <div id="content">

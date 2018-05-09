@@ -15,9 +15,11 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('admin/article') }}" method="POST">
+                    <form action="{{ url('admin/article') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="text" name="title" class="form-control" required="required" placeholder="請輸入標題">
+                        <br>
+                        <input type="file" name="picture" class="form-control" >
                         <br>
                         <textarea name="body" rows="10" class="form-control" required="required" placeholder="請輸入内容"></textarea>
                         <br>

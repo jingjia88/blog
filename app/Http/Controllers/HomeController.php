@@ -20,10 +20,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->with('articles',\App\Article::all());
+                           
     }
-    public function show($id)
-    {
-        $article = Article::find($id);
-        return view('content')->with('article',$article);
-    }
+    // public function show($id)
+    // {
+    //     $article = Article::find($id);
+    //     return view('content')->with('article',$article)->with('data',base64_decode($article->img));   
+    // }
 }

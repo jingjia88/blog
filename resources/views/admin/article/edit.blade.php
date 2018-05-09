@@ -20,6 +20,10 @@
                         {{ csrf_field() }}
                         <input type="text" name="title" class="form-control" required="required" value="{{$article->title}}">
                         <br>
+                        <p>原圖:</p>
+                        <img src= "data:image/gif;base64,{{$article->img}}" alt="wrong">
+                        <input type="file" name="picture" class="form-control" >
+                        <br>
                         <textarea name="body" rows="10" class="form-control" required="required">{{$article->body}}</textarea>
                         <br>
                         <button class="btn btn-lg btn-info">編輯文章</button>
