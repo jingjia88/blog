@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Article;
+use App\User;
 
 class ArticleController extends Controller
 {
@@ -15,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('admin/article/index')->with('article',Article::all());
+        //
     }
 
     /**
@@ -41,16 +43,12 @@ class ArticleController extends Controller
             'body' => 'required',
         ]);
         $article = new Article;
-        if($request->hasfile('picture')){
-            $imagedata = file_get_contents($request->file('picture'));
-            $article->img = base64_encode($imagedata);
-        }
         
         $article->title = $request->get('title');
         $article->body = $request->get('body');
         $article->user_id = $request->user()->id;
         if($article->save()){
-            return redirect('admin/article');
+            return redirect('admin/article/'.$article->user_id);
         }else {
             return redirect()->back()->withInput()->withErrors('保存失敗！');
         }
@@ -64,7 +62,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        
+        return view('admin/article/index')->with('user',User::with('hasManyArticles')->find($id));
     }
 
     /**
@@ -102,7 +100,7 @@ class ArticleController extends Controller
         $article->body = $request->get('body');
         $article->user_id = $request->user()->id;
         if($article->save()){
-            return redirect('admin/article');
+            return redirect('admin/article/'.$article->user_id);
         }else {
             return redirect()->back()->withInput()->withErrors('保存失敗！');
         }

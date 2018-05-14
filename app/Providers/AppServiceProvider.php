@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Facebook\Facebook;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,10 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
+        if(env('APP_ENV')=='local'){
             Schema::defaultStringLength(191);
+        }
         
-        if(env('APP_ENV'!='local')){
+        if(env('APP_ENV')!='local'){
             \URL::forceScheme('https');
         }
     }
@@ -27,8 +30,5 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        //
-    }
+
 }

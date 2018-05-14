@@ -26,7 +26,7 @@
                     </a>
                 </div>
                 <div class="body">
-                    <p>{{ $article->body }}</p>
+                    <p>{!! $article->body !!}</p>
                 </div>
             </li>
             @endforeach

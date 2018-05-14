@@ -25,7 +25,7 @@
         </div>
         <div id="content" style="margin: 20px;">
             <p>
-                {{ $article->body }}
+                {!! $article->body !!}
             </p>
         </div>
 
@@ -56,10 +56,10 @@
                 </form>
             </div>
 
-            <div class="conmments" style="margin-top: 100px;">
+            <div class="comments" style="margin-top: 100px;">
                 @foreach ($article->hasManyComments as $comment)
                     <div class="one" style="border-top: solid 10px #efefef; padding: 5px 20px;">
-                        <div class="name" data="{{ $comment->name }}">
+                        <div class="name" data="{{ $comment->nickname }}">
                             <h3>{{ $comment->nickname }}</h3>
                             <h4>{{ $comment->created_at }}</h4>
                         </div>

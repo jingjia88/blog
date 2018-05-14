@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -64,9 +66,10 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
+        </nav>        
+    </div>
+    <div>
+    <main class="py-4">
             @yield('content')
         </main>
     </div>

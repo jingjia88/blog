@@ -16,14 +16,14 @@
 
                 
                 <a href="{{ url('admin/article/create') }}" class="btn btn-lg btn-primary">新增</a>
-
-                @foreach ($article as $article)
+               
+                @foreach ($user->hasManyArticles as $article)
                 <hr>
                 <div class="article">
                     <h4>{{ $article->title }}</h4>
                     <div class="content">
                         <p>
-                            {{ $article->body }}
+                            {!! $article->body !!}
                         </p>
                     </div>
                 </div>

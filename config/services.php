@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '384886518693331',
+        'client_secret' => '672b3248976d817372230688807ce100',
+        'redirect' => 'https://jingjia.herokuapp.com/login/facebook/callback',
+    ],
+
 ];

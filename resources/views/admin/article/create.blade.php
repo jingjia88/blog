@@ -14,18 +14,18 @@
                             {!! implode('<br>', $errors->all()) !!}
                         </div>
                     @endif
-
+                    
                     <form action="{{ url('admin/article') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="text" name="title" class="form-control" required="required" placeholder="請輸入標題">
                         <br>
-                        <input type="file" name="picture" class="form-control" >
-                        <br>
-                        <textarea name="body" rows="10" class="form-control" required="required" placeholder="請輸入内容"></textarea>
+                        <textarea class="form-control"name="body" id="body" required="required"></textarea>
+                        <script>
+                            CKEDITOR.replace( 'body' );
+                        </script>
                         <br>
                         <button class="btn btn-lg btn-info">新增文章</button>
                     </form>
-
                 </div>
             </div>
         </div>
